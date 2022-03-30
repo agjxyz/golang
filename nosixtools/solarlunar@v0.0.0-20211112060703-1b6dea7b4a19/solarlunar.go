@@ -4,8 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"strconv"
-	"strings"
 	"time"
+	"strings"
 )
 
 var MIN_YEAR = 1900
@@ -139,14 +139,14 @@ func SolarToChineseLuanr(date string) string {
 
 func SolarToSimpleLuanr(date string) string {
 	lunarYear, lunarMonth, lunarDay, leapMonth, leapMonthFlag := calculateLunar(date)
-	result := strconv.Itoa(lunarYear) + ""
+	result := strconv.Itoa(lunarYear) + "-"
 	if leapMonthFlag && (lunarMonth == leapMonth) {
 		result += "闰"
 	}
 	if lunarMonth < 10 {
-		result += "0" + strconv.Itoa(lunarMonth) + ""
+		result += "0" + strconv.Itoa(lunarMonth) + "-"
 	} else {
-		result += strconv.Itoa(lunarMonth) + ""
+		result += strconv.Itoa(lunarMonth) + "-"
 	}
 	if lunarDay < 10 {
 		result += "0" + strconv.Itoa(lunarDay) + ""
